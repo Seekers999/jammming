@@ -1,12 +1,11 @@
-import React from 'react';
-import './SearchResults.css';
+import React from "react";
 
-const SearchResults = () => {
+function SearchResults () {
     return (
         <div className="SearchResults">
-            <h2>Results</h2>
-        </div>
-    );
+        {/* <!-- Add a TrackList component --> */}
+      </div>
+        );
 }
 
 export default SearchResults;
