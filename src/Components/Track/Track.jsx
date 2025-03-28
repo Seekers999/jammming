@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Track.module.css";
 
-class Track extends Component (props) {
-  //
+function Track (props) {
    renderAction() {
     if (this.props.isRemoval) {
       return <button className="Track-action">-</button>;
@@ -10,7 +9,7 @@ class Track extends Component (props) {
       return <button className="Track-action">+</button>;
     }
   };
-  render() {
+
     return (
       <div className="Track">
         <div className="Track-information">
@@ -20,8 +19,8 @@ class Track extends Component (props) {
         </div>
         {/* <button class="Track-action"><!-- + or - will go here --></button> */}
       </div>
-    );  
-  }
-};
+    );
+    
+}
 
 export default Track;
