@@ -49,7 +49,7 @@ function App () {
   function addTrack(track) {
     setPlaylistTracks((prevTracks) => {
       if (prevTracks.some((t) => t.id === track.id)) {
-        console.log("Track already exists"); // Track already exists, do not add
+        return prevTracks; // Track already exists, do not add
       }
       return [...prevTracks, track]; // Add the new track
     });
@@ -63,8 +63,8 @@ function App () {
         <div className={styles.App}>
           <SearchBar/>
           <div className={styles['App-playlist']}>
-            <SearchResults userSearchResults={searchResults} onAdd={addTrack}/>
-            <Playlist playlistName={playlistName} playlistTracks={playlistTracks}/>
+            <SearchResults userSearchResults={searchResults} onAdd={addTrack} isRemoval={true}/>
+            <Playlist playlistName={playlistName} playlistTracks={playlistTracks} isRemoval={true}/>
           </div>
         </div>
       </div>

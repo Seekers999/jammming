@@ -12,7 +12,8 @@ function Tracklist(props) {
                 <Track
                      track={track}
                      key={track.id}// Assuming each track has a unique id
-                     
+                     isRemoval={props.isRemoval}
+
                 />
         ))}
       </div>
