@@ -5,11 +5,55 @@ import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../PlayList/PlayList";
 import styles from "./App.module.css";
 
-function App (prop) {
+function App () {
   const [searchResults, setSearchResults] = useState([
-    {name: "name1", artist: "artist1", album: "album1", id: 1},
-    {name: "name2", artist: "artist2", album: "album2", id: 2},
-    {name: "name3", artist: "artist3", album: "album3", id: 3}]);
+    {
+    name: "Example Track Name 1", 
+    artist: "Example Track Name 1", 
+    album: "Example Track Album 1", 
+    id: 1,
+  },
+
+    {
+    name: "Example Track Name 2", 
+    artist: "Example Track Artist 2", 
+    album: "Example Track Album 2", 
+    id: 2,
+  },
+
+    {
+    name: "Example Track Name 3", 
+    artist: "Example Track Artist 3", 
+    album: "Example Track Album 3", 
+    id: 3,
+  },]);
+
+  const [playlistName, setPlaylistName] = useState("New Playlist");
+  const [playlistTracks, setPlaylistTracks] = useState([
+    {
+    name: "Example Playlist Name 1",
+    artist: "Example Playlist Artist 1", 
+    album: "Example Playlist Album 1",
+    id: 1,
+  },
+
+    {
+    name: "Example Playlist Name 2",
+    artist: "Example Playlist Artist 2",
+    album: "Example Playlist Album 2",
+    id: 2,
+  },
+
+  ]);
+
+  function addTrack(track) {
+    setPlaylistTracks((prevTracks) => {
+      if (prevTracks.some((t) => t.id === track.id)) {
+        console.log("Track already exists"); // Track already exists, do not add
+      }
+      return [...prevTracks, track]; // Add the new track
+    });
+  }
 
     return (
         <div>
@@ -18,9 +62,9 @@ function App (prop) {
         </h1>
         <div className={styles.App}>
           <SearchBar/>
-          <div className="App-playlist">
-            <SearchResults userSearchresults={searchResults}/>
-            <Playlist/>
+          <div className={styles['App-playlist']}>
+            <SearchResults userSearchResults={searchResults} onAdd={addTrack}/>
+            <Playlist playlistName={playlistName} playlistTracks={playlistTracks}/>
           </div>
         </div>
       </div>
