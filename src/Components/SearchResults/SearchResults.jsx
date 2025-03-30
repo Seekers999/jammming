@@ -3,11 +3,11 @@ import styles from "./SearchResults.module.css";
 import Tracklist from "../TrackList/TrackList";
 
 
-function SearchResults () {
+function SearchResults (props) {
     return (
-        <div className="SearchResults">
+        <div className={styles.SearchResults}>
         {/* <!-- Add a TrackList component --> */}
-        <Tracklist/>
+        <Tracklist userSearchResults={props.userSearchResults}/>
       </div>
         );
 }
