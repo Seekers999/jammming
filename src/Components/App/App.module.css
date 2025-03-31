@@ -34,6 +34,21 @@ h2 {
 .App {
   height: 100%;
   padding: 0 17% 10% 17%;
+}
+
+@media only screen and (max-width: 768px) {
+  .App {
+    padding: 0 5%;
+  }
+
+  .App-playlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.App {
   background-image: url('./background_photo_desktop.a0687f3fe6f1303a2d18.jpg');
   background-size: cover;
   background-position: center;

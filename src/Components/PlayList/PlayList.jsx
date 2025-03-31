@@ -1,6 +1,7 @@
 import React from "react";
 import Tracklist from "../TrackList/TrackList";
 import styles from "./PlayList.module.css";
+import spotifyLogo from "../../assests/spotify-logo.svg";
 
 function Playlist(props) {
   function handleNameChange(event) {
@@ -14,6 +15,7 @@ function Playlist(props) {
       {/* <!-- Add a TrackList component --> */}
       <Tracklist userSearchResults={props.playlistTracks}  onRemove={props.onRemove} isRemoval={true}/>
       <button className={styles['Playlist-save']} onClick={props.onSave}>
+        <img src={spotifyLogo} alt="Spotify Logo" className={styles.spotifyLogo}/>
         SAVE TO SPOTIFY
       </button>
     </div>

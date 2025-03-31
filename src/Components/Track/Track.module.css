@@ -14,7 +14,8 @@
     color: #fff;
 }
 
-.Track-action:hover {
+/* Modify the hover effect to target only the button */
+button.Track-action:hover {
     color: rgba(265, 265, 265, .5);
 }
 
@@ -23,7 +24,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 72px;
+    height: 88px;
+    padding-bottom: 5px;
+    pointer-events: none; /* Prevent hover effects on track information */
 }
 
 .Track-information h3 {

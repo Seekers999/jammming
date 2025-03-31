@@ -4,7 +4,7 @@
     align-items: center;
     overflow-y: scroll;
     width: 37%;
-    max-height: 950px;
+    max-height: 990px;
     padding: 2.27rem 1.16rem;
     background-color: rgba(1, 12, 63, 0.7);
     box-shadow: 0 4px 2px 2px #000000;
@@ -18,26 +18,51 @@
     border-bottom: 1px solid #6f6f6f;
     font-family: 'Poppins', sans-serif;
     font-size: 1.55rem;
-    color: #fff;
+    color: #ffffff;
 }
 
 .Playlist-save {
-    cursor: pointer;
-    width: 10rem;
-    padding: .77rem 0;
-    border-radius: 54px;
-    border-width: 0px;
-    margin-top: 1.27rem;
-    background-color: #6c41ec;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0; /* Start with no gap */
+    background-color: #0d8706;
+    padding: 0.77rem;
     text-align: center;
     font-size: .83rem;
-    transition: background-color .25s;
+    transition: all 0.3s ease-in-out; /* Smooth transition for all properties */
     color: #fff;
     font-weight: 500;
+    border: none;
+    border-radius: 54px;
+    cursor: pointer;
+    margin-top: 1.27rem;
+    width: 11rem; /* Start with smaller width */
+    overflow: hidden; /* Hide overflow content */
+}
+
+.spotifyLogo {
+    width: 0; /* Start with 0 width */
+    height: 20px;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    margin-right: 0;
+    transform: translateX(-20px); /* Start from left */
 }
 
 .Playlist-save:hover {
-    background-color: rgba(108, 65, 233, .7);
+    background-color: rgba(0, 255, 64, 0.7);
+    width: 12rem; /* Expand on hover */
+    gap: 8px; /* Add gap on hover */
+    color: black;
+}
+
+.Playlist-save:hover .spotifyLogo {
+    width: 20px; /* Expand to full width */
+    opacity: 1;
+    margin-right: 4px;
+    transform: translateX(0); /* Move to original position */
 }
 
 ::-webkit-scrollbar {
@@ -45,8 +70,42 @@
     background: transparent;
 }
 
-@media only screen and (max-width: 1020px) {
+@media only screen and (max-width: 768px) {
     .Playlist {
+        width: 95%;
+        margin: 1rem auto;
+        max-height: 70vh;
+        padding: 1rem;
+    }
+
+    .Playlist input {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .Playlist-save {
+        width: 80%;
+        max-width: 200px;
+        padding: 0.5rem 0;
+        font-size: 1rem;
+        margin: 1rem auto;
+    }
+}
+
+/* Small phones */
+@media only screen and (max-width: 480px) {
+    .Playlist {
+        width: 100%;
+        margin: 0.5rem auto;
+        padding: 0.5rem;
+    }
+
+    .Playlist input {
+        font-size: 1rem;
+    }
+
+    .Playlist-save {
         width: 90%;
+        padding: 0.4rem 0;
     }
 }

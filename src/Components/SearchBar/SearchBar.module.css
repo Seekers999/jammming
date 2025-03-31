@@ -7,14 +7,14 @@
 }
 
 .SearchBar input {
-    width: 287px;
-    padding: .88rem 0;
-    border: 1px solid #fff;
-    border-radius: 3px;
-    margin-bottom: 2.22rem;
-    color: #010c3f;
+    width: 80%;
+    padding: 2.5% 0;
+    border: 1px solid #aa99ef;
+    border-radius: 54px;
+    margin-bottom: 5.5%;
+    color: #330c51;
     text-align: center;
-    font-size: 1rem;
+    font-size: 100%;
 }
 
 .SearchBar input:focus {
@@ -22,19 +22,29 @@
 }
 
 .SearchButton {
+    font-family: poppins, sans-serif;
     cursor: pointer;
-    width: 8.11rem;
+    width: 8.3rem;
     padding: .77rem 0;
     border-radius: 54px;
     background-color: #010c3f;
     text-align: center;
     font-size: .833rem;
-    transition: background-color .25s;
+    transition: all 0.3s ease-in-out; /* Smooth transition for all properties */
     border: 0px;
     color: #fff;
     font-weight: 500;
+    position: relative;
+    overflow: hidden;
 }
 
 .SearchButton:hover {
-    background-color: rgba(108, 65, 233, .7);
+    background-color: #1a237e; /* Slightly lighter blue */
+    transform: scale(1.02); /* Subtle grow effect */
+    box-shadow: 0 2px 8px rgba(26, 35, 126, 0.4); /* Subtle glow effect */
+}
+
+.SearchButton:active {
+    transform: scale(0.98); /* Slight shrink when clicked */
+    background-color: #0d1657; /* Darker when clicked */
 }
