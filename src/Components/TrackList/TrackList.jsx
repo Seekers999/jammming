@@ -13,7 +13,8 @@ function Tracklist(props) {
                      track={track}
                      key={track.id}// Assuming each track has a unique id
                      isRemoval={props.isRemoval}
-
+                     onRemove={props.onRemove}
+                     onAdd={props.onAdd}
                 />
         ))}
       </div>

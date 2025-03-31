@@ -4,6 +4,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../PlayList/PlayList";
 import styles from "./App.module.css";
+import { Spotify } from "../../util/Spotify/Spotify";
 
 function App () {
   const [searchResults, setSearchResults] = useState([
@@ -47,13 +48,39 @@ function App () {
   ]);
 
   function addTrack(track) {
-    setPlaylistTracks((prevTracks) => {
-      if (prevTracks.some((t) => t.id === track.id)) {
-        return prevTracks; // Track already exists, do not add
-      }
-      return [...prevTracks, track]; // Add the new track
+    const existingTrack = playlistTracks.find((t) => t.id === track.id);
+    const newTrack = playlistTracks.concat(track);
+    if (existingTrack) {
+      console.log("Track already exists");
+    } else {
+      setPlaylistTracks(newTrack);
+    }
+  }
+
+  function removeTrack(track) {
+    const existingTrack = playlistTracks.filter((t) => t.id !== track.id);
+    setPlaylistTracks(existingTrack);
+  }
+
+  function updatePlaylistName(name) {
+    setPlaylistName(name);
+  }
+
+  function savePlaylist() {
+    const trackURIs = playlistTracks.map((track) => track.uri)
+    Spotify.savePlaylist(playlistName, trackURIs).then(() => {
+      setPlaylistName("New Playlist");
+      setPlaylistTracks([]);
     });
   }
+
+  function search(searchTerm) {
+   Spotify.search(searchTerm).then((result) => setSearchResults(result));
+   console.log(searchTerm);
+    // Example: setSearchResults(fetchedResults);
+
+  }
+
 
     return (
         <div>
@@ -61,10 +88,10 @@ function App () {
           Ja<span className={styles.highlight}>mmm</span>ing
         </h1>
         <div className={styles.App}>
-          <SearchBar/>
+          <SearchBar onSearch={search}/>
           <div className={styles['App-playlist']}>
-            <SearchResults userSearchResults={searchResults} onAdd={addTrack} isRemoval={true}/>
-            <Playlist playlistName={playlistName} playlistTracks={playlistTracks} isRemoval={true}/>
+            <SearchResults userSearchResults={searchResults} onAdd={addTrack}/>
+            <Playlist playlistName={playlistName} playlistTracks={playlistTracks} onRemove={removeTrack} onNameChange={updatePlaylistName} onSave={savePlaylist}/>
           </div>
         </div>
       </div>
