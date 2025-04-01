@@ -11,7 +11,7 @@ function Playlist(props) {
 
   return (
     <div className={styles.Playlist}>
-      <input defaultValue={"New Playlist"} onChange={handleNameChange}/>
+      <input defaultValue={"Enter Playlist Name"} onChange={handleNameChange}/>
       {/* <!-- Add a TrackList component --> */}
       <Tracklist userSearchResults={props.playlistTracks}  onRemove={props.onRemove} isRemoval={true}/>
       <button className={styles['Playlist-save']} onClick={props.onSave}>
