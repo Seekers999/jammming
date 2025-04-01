@@ -72,10 +72,13 @@
 
 @media only screen and (max-width: 768px) {
     .Playlist {
-        width: 95%;
+        width: 90%;
         margin: 1rem auto;
         max-height: 70vh;
         padding: 1rem;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .Playlist input {
@@ -95,9 +98,12 @@
 /* Small phones */
 @media only screen and (max-width: 480px) {
     .Playlist {
-        width: 100%;
+        width: 90%;
         margin: 0.5rem auto;
         padding: 0.5rem;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .Playlist input {
