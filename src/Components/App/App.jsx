@@ -29,7 +29,7 @@ function App () {
     id: 3,
   },]);
 
-  const [playlistName, setPlaylistName] = useState("New Playlist");
+  const [playlistName, setPlaylistName] = useState("Enter Playlist Name");
   const [playlistTracks, setPlaylistTracks] = useState([
     {
     name: "Example Playlist Name 1",
