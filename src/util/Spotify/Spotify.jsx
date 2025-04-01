@@ -2,7 +2,7 @@ import React, {useState} from "react";
 
 let userAccessToken = "";
 const clientID = "18f843303c8748d584b5906eb736912c";
-const redirectURI = "http://localhost:8000"
+const redirectURI = "https://jammming-mitevski.netlify.app/"
 
 
 const Spotify = {
